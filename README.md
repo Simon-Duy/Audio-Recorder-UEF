@@ -5,13 +5,6 @@
 <p><b>Audio recorder (Voice recorder, Sound recorder)</b> - an application that gives easy audio recording experience. 
 This app is optimized to start up as fast as possible, aiding the user in not missing important sounds.</p>
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/com.dimowner.audiorecorder/)
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
-     alt="Get it on Google Play"
-     height="80">](https://play.google.com/store/apps/details?id=com.dimowner.audiorecorder)
-
 <b>Two recording formats are available:</b>
  - M4A
  - Waveform Audio File Format (WAVE, or WAV)
@@ -35,23 +28,11 @@ Colorful themes allow customizing the app look, making the experience better.
 - Add recordings to bookmarks
 - Color themes
 
-### License
-
-```
-Copyright 2019 Dmytro Ponomarenko
-
-Licensed to the Apache Software Foundation (ASF) under one or more contributor
-license agreements. See the NOTICE file distributed with this work for
-additional information regarding copyright ownership. The ASF licenses this
-file to you under the Apache License, Version 2.0 (the "License"); you may not
-use this file except in compliance with the License. You may obtain a copy of
-the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-License for the specific language governing permissions and limitations under
-the License.
-```
+<b>Deployment Steps:</b>
+- Unzip the download package by choosing “ Extract to … “ option with your personal, favored file archiver utility (either Winrar or 7Zip works best in this instances)
+- Import the project into your favored IDE (Android Studio works flawlessly in this instances)
+- Navigate to “SDK Platforms” Tab from an option “SDK Manager” which could be found from “Tools” menu bar
+- Proceed and Download Android 11 (API Level 30 or lower)
+- Navigate to “SDK Tools” Tab within the “SDK Manager” option
+- Download Google Play Services & Google Play Licensing Library
+- Run the project under any emulator models
