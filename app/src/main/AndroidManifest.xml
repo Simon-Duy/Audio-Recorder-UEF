@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+			 package="com.longkhoa.audiorecorder">
+
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+
+	<uses-feature android:name="android.hardware.screen.portrait" android:required="false" />
+	<uses-feature android:name="android.hardware.telephony" android:required="false" />
+	<uses-feature android:name="android.hardware.location" android:required="false" />
+	<uses-feature android:name="android.hardware.location.gps" android:required="false" />
+	<uses-feature android:name="android.hardware.camera2" android:required="false" />
+	<uses-feature android:name="android.hardware.microphone" android:required="true" />
+
+	<application
+			android:allowBackup="false"
+			android:requestLegacyExternalStorage="true"
+			android:hardwareAccelerated="@bool/useHardwareAcceleration"
+			android:name=".ARApplication"
+			android:icon="@mipmap/audio_recorder_logo"
+			android:roundIcon="@mipmap/audio_recorder_logo"
+			android:label="@string/app_name"
+			android:theme="@style/AppTheme">
+
+		<meta-data
+			android:name="com.google.android.gms.ads.APPLICATION_ID"
+			android:value="ca-app-pub-4177526662278886~1603865365"/>
+
+		<activity android:name=".app.main.MainActivity"
+					 android:launchMode= "singleTask"
+			android:exported="true"
+
+			android:screenOrientation="portrait">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+
+			<meta-data android:name="android.app.shortcuts"
+					android:resource="@xml/shortcuts" />
+
+		</activity>
+
+		<activity android:name=".app.records.RecordsActivity"
+					 android:screenOrientation="portrait"/>
+		<activity android:name=".app.settings.SettingsActivity"
+					 android:screenOrientation="portrait"/>
+		<activity android:name=".app.info.ActivityInformation"
+					 android:screenOrientation="portrait"/>
+		<activity android:name=".app.lostrecords.LostRecordsActivity"
+				android:screenOrientation="portrait"/>
+		<activity android:name=".app.browser.FileBrowserActivity"
+				android:screenOrientation="portrait"/>
+		<activity android:name=".app.trash.TrashActivity"
+				android:screenOrientation="portrait"/>
+		<activity android:name=".app.welcome.WelcomeActivity"
+				android:screenOrientation="portrait"/>
+		<activity android:name=".app.setup.SetupActivity"
+				android:screenOrientation="portrait">
+		</activity>
+		<activity android:name=".app.moverecords.MoveRecordsActivity"
+				android:screenOrientation="portrait"/>
+
+		<service android:name=".app.RecordingService" />
+		<service android:name=".app.PlaybackService" />
+		<service android:name=".app.DownloadService" />
+		<service android:name=".app.DecodeService" />
+		<service android:name=".app.moverecords.MoveRecordsService" />
+
+		<receiver android:name=".app.RecordingService$StopRecordingReceiver" />
+		<receiver android:name=".app.PlaybackService$StopPlaybackReceiver" />
+		<receiver android:name=".app.DownloadService$StopDownloadReceiver" />
+		<receiver android:name=".app.DecodeService$StopDecodeReceiver" />
+		<receiver android:name=".app.moverecords.MoveRecordsService$StopMoveRecordsReceiver" />
+
+		<provider
+				android:name=".AppFileProvider"
+				android:authorities="${applicationId}.app_file_provider"
+				android:exported="false"
+				android:grantUriPermissions="true">
+			<meta-data
+					android:name="android.support.FILE_PROVIDER_PATHS"
+					android:resource="@xml/provider_paths"/>
+		</provider>
+
+    </application>
+
+</manifest>
